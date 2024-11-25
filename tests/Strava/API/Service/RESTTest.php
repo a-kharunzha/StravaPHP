@@ -5,7 +5,7 @@ namespace Strava\API\Service {
     use GuzzleHttp\Psr7\Response;
     use Tests\Support\TestCase;
 
-    function fopen($filePath)
+    function fopen($filePath, $mode)
     {
         return $filePath;
     }
@@ -579,7 +579,7 @@ $outputWithVerbosity = $serviceWithVerbosity->updateAthlete('Xyz', 'ABC', 'The N
                 'multipart' => [
                     [
                         'name' => 'file',
-                        'contents' => fopen($fileToUpload),
+                        'contents' => fopen($fileToUpload, 'r'),
                         'filename' => basename($fileToUpload),
                     ],
                 ],
